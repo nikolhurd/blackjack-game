@@ -1,7 +1,4 @@
 const generateDeck = () => {
-  // card model (card & suit)
-  // creating deck of cards - 52 cards
-
   const values = [
     "A",
     "2",
@@ -18,11 +15,13 @@ const generateDeck = () => {
     "K",
   ];
   const suits = ["heart ", "diamond ", "spade ", "club "];
+  const cards = [];
 
   for (const suit of suits) {
     for (const value of values) {
       let card = suit + value;
-      console.log(card);
+      cards.push(card);
+      console.log(cards);
     }
   }
 };
