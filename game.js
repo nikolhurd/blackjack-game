@@ -40,25 +40,26 @@ const generateDeck = () => {
     array.sort(() => Math.random() - 0.5);
   }
   shuffle(cards);
-  console.log(cards);
   return cards;
 };
 
-generateDeck();
-
-// const drawCard = (deck) => {
-//   // function that draw a card from a deck
-// };
+const drawCard = (deck) => {
+  let lastCard = deck.pop();
+  return lastCard;
+};
 
 // const checkScore = (hand) => {
 //   // function that calculates a score
 // };
 
-// const deck = generateDeck();
-// const playerHand = [];
-// const dealerHand = [];
+const deck = generateDeck();
+const playerHand = [];
+const dealerHand = [];
 
-// playerHand.push(drawCard(deck));
-// dealerHand.push(drawCard(deck));
-// playerHand.push(drawCard(deck));
-// dealerHand.push(drawCard(deck));
+playerHand.push(drawCard(deck));
+dealerHand.push(drawCard(deck));
+playerHand.push(drawCard(deck));
+dealerHand.push(drawCard(deck));
+
+console.log("Starting player hand ", playerHand);
+console.log("Starting delaer hand ", dealerHand);
