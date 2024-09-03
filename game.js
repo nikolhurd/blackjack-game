@@ -14,16 +14,29 @@ const generateDeck = () => {
     "Q",
     "K",
   ];
-  const suits = ["heart ", "diamond ", "spade ", "club "];
+  const suits = ["heart", "diamond", "spade", "club"];
   const cards = [];
 
   for (const suit of suits) {
     for (const value of values) {
-      let card = suit + value;
+      let points;
+      if (value === "A") {
+        points = 1;
+      } else if (value === "J" || value === "Q" || value === "K") {
+        points = 10;
+      } else {
+        points = parseInt(value);
+      }
+      let card = {
+        suit: suit,
+        value: value,
+        points: points,
+      };
       cards.push(card);
-      console.log(cards);
     }
   }
+  console.log(cards);
+  return cards;
 };
 
 generateDeck();
