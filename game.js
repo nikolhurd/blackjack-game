@@ -35,6 +35,11 @@ const generateDeck = () => {
       cards.push(card);
     }
   }
+
+  function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+  }
+  shuffle(cards);
   console.log(cards);
   return cards;
 };
