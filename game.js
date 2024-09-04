@@ -49,7 +49,6 @@ const drawCard = (deck) => {
 };
 
 const checkScore = (hand) => {
-  // function that calculates a score
   let total = hand.reduce((sum, num) => sum + num.points, 0);
   return total;
 };
@@ -73,3 +72,44 @@ dealerHand.forEach((card) => {
   console.log(`Starting dealer hand: ${card.suit} ${card.value}`);
 });
 console.log("Starting dealer score: ", checkScore(dealerHand));
+
+while (true) {
+  if (checkScore(playerHand) < 21 && checkScore(dealerHand) < 21) {
+    playerHand.push(drawCard(deck));
+  }
+  if (checkScore(playerHand) !== 21 || checkScore(playerHand) < 21) {
+    dealerHand.push(drawCard(deck));
+  }
+  if (checkScore(playerHand) === 21) {
+    console.log(
+      `You win! Your final score was 21, while dealer had ${checkScore(
+        dealerHand
+      )} `
+    );
+    break;
+  }
+  if (checkScore(playerHand) > 21) {
+    console.log(
+      `You lose! Your final score was: ${checkScore(
+        playerHand
+      )}, while dealer had ${checkScore(dealerHand)} `
+    );
+    break;
+  }
+  if (checkScore(dealerHand) === 21) {
+    console.log(
+      `You win! Your final score was : ${checkScore(
+        playerHand
+      )}, while dealer had ${checkScore(dealerHand)} `
+    );
+    break;
+  }
+  if (checkScore(dealerHand) > 21) {
+    console.log(
+      `You win! Your final score was : ${checkScore(
+        playerHand
+      )}, while dealer had ${checkScore(dealerHand)} `
+    );
+    break;
+  }
+}
