@@ -65,13 +65,13 @@ dealerHand.push(drawCard(deck));
 playerHand.forEach((card) => {
   console.log(`Starting player hand: ${card.suit} ${card.value}`);
 });
-
 console.log("Starting player score: ", checkScore(playerHand));
 console.log("------------------");
 dealerHand.forEach((card) => {
   console.log(`Starting dealer hand: ${card.suit} ${card.value}`);
 });
 console.log("Starting dealer score: ", checkScore(dealerHand));
+console.log("------------------------");
 
 while (true) {
   if (checkScore(playerHand) < 21 && checkScore(dealerHand) < 21) {
@@ -113,3 +113,14 @@ while (true) {
     break;
   }
 }
+
+console.log("------------------------");
+playerHand.forEach((card) => {
+  console.log(`Ending player hand: ${card.suit} ${card.value}`);
+});
+console.log("Ending player score: ", checkScore(playerHand));
+console.log("------------------");
+dealerHand.forEach((card) => {
+  console.log(`Ending dealer hand: ${card.suit} ${card.value}`);
+});
+console.log("Ending dealer score: ", checkScore(dealerHand));
