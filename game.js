@@ -48,9 +48,11 @@ const drawCard = (deck) => {
   return lastCard;
 };
 
-// const checkScore = (hand) => {
-//   // function that calculates a score
-// };
+const checkScore = (hand) => {
+  // function that calculates a score
+  let total = hand.reduce((sum, num) => sum + num.points, 0);
+  return total;
+};
 
 const deck = generateDeck();
 const playerHand = [];
@@ -62,4 +64,5 @@ playerHand.push(drawCard(deck));
 dealerHand.push(drawCard(deck));
 
 console.log("Starting player hand ", playerHand);
+console.log("Starting player value ", total);
 console.log("Starting delaer hand ", dealerHand);
