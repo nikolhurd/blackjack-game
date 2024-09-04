@@ -64,5 +64,5 @@ playerHand.push(drawCard(deck));
 dealerHand.push(drawCard(deck));
 
 console.log("Starting player hand ", playerHand);
-console.log("Starting player value ", total);
+console.log("Starting player value ");
 console.log("Starting delaer hand ", dealerHand);
