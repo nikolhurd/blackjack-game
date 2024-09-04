@@ -65,10 +65,6 @@ const takeTwo = (hand) => {
 
 takeTwo(playerHand);
 takeTwo(dealerHand);
-// playerHand.push(drawCard(deck));
-// dealerHand.push(drawCard(deck));
-// playerHand.push(drawCard(deck));
-// dealerHand.push(drawCard(deck));
 
 playerHand.forEach((card) => {
   console.log(`Starting player hand: ${card.suit} ${card.value}`);
@@ -106,7 +102,7 @@ while (true) {
   }
   if (checkScore(dealerHand) === 21) {
     console.log(
-      `You win! Your final score was : ${checkScore(
+      `You lose! Your final score was: ${checkScore(
         playerHand
       )}, while dealer had ${checkScore(dealerHand)} `
     );
