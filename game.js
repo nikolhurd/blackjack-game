@@ -63,6 +63,13 @@ dealerHand.push(drawCard(deck));
 playerHand.push(drawCard(deck));
 dealerHand.push(drawCard(deck));
 
-console.log("Starting player hand ", playerHand);
-console.log("Starting player value ");
-console.log("Starting delaer hand ", dealerHand);
+playerHand.forEach((card) => {
+  console.log(`Starting player hand: ${card.suit} ${card.value}`);
+});
+
+console.log("Starting player score: ", checkScore(playerHand));
+console.log("------------------");
+dealerHand.forEach((card) => {
+  console.log(`Starting dealer hand: ${card.suit} ${card.value}`);
+});
+console.log("Starting dealer score: ", checkScore(dealerHand));
