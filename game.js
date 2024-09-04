@@ -58,7 +58,7 @@ const playerHand = [];
 const dealerHand = [];
 
 const takeTwo = (hand) => {
-  for (i = 0; i < 2; i++) {
+  for (let i = 0; i < 2; i++) {
     hand.push(drawCard(deck));
   }
 };
@@ -78,41 +78,37 @@ console.log("Starting dealer score: ", checkScore(dealerHand));
 console.log("------------------------");
 
 while (true) {
-  if (checkScore(playerHand) < 21 && checkScore(dealerHand) < 21) {
-    playerHand.push(drawCard(deck));
-  }
-  if (checkScore(playerHand) !== 21 || checkScore(playerHand) < 21) {
-    dealerHand.push(drawCard(deck));
-  }
-  if (checkScore(playerHand) === 21) {
+  playerHand.push(drawCard(deck)); //player gets card
+
+  let playerScore = checkScore(playerHand);
+  let dealerScore = checkScore(dealerHand);
+
+  if (playerScore > 21) {
     console.log(
-      `You win! Your final score was 21, while dealer had ${checkScore(
-        dealerHand
-      )} `
+      `You lose! Your final score was: ${playerScore}, while dealer had ${dealerScore}`
     );
     break;
   }
-  if (checkScore(playerHand) > 21) {
+
+  if (playerScore === 21) {
     console.log(
-      `You lose! Your final score was: ${checkScore(
-        playerHand
-      )}, while dealer had ${checkScore(dealerHand)} `
+      `You win! Your final score was 21, while dealer had ${dealerScore}`
     );
     break;
   }
-  if (checkScore(dealerHand) === 21) {
+  dealerHand.push(drawCard(deck)); //dealer gets card
+  dealerScore = checkScore(dealerHand);
+
+  if (dealerScore > 21) {
     console.log(
-      `You lose! Your final score was: ${checkScore(
-        playerHand
-      )}, while dealer had ${checkScore(dealerHand)} `
+      `You win! Your final score was : ${playerScore}, while dealer had ${dealerScore}`
     );
     break;
   }
-  if (checkScore(dealerHand) > 21) {
+
+  if (dealerScore === 21) {
     console.log(
-      `You win! Your final score was : ${checkScore(
-        playerHand
-      )}, while dealer had ${checkScore(dealerHand)} `
+      `You lose! Your final score was: ${playerScore}, while dealer had ${dealerScore} `
     );
     break;
   }
