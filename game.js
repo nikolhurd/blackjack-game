@@ -57,10 +57,18 @@ const deck = generateDeck();
 const playerHand = [];
 const dealerHand = [];
 
-playerHand.push(drawCard(deck));
-dealerHand.push(drawCard(deck));
-playerHand.push(drawCard(deck));
-dealerHand.push(drawCard(deck));
+const takeTwo = (hand) => {
+  for (i = 0; i < 2; i++) {
+    hand.push(drawCard(deck));
+  }
+};
+
+takeTwo(playerHand);
+takeTwo(dealerHand);
+// playerHand.push(drawCard(deck));
+// dealerHand.push(drawCard(deck));
+// playerHand.push(drawCard(deck));
+// dealerHand.push(drawCard(deck));
 
 playerHand.forEach((card) => {
   console.log(`Starting player hand: ${card.suit} ${card.value}`);
